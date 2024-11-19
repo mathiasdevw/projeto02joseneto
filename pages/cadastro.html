@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/styles.css">
+  <title>Cadastro</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro</h1>
+    <form id="register-form" onsubmit="cadastro(event)">
+      <input type="text" id="register-name" placeholder="Nome" required />
+      <input type="email" id="register-email" placeholder="E-mail" required />
+      <input type="password" id="register-password" placeholder="Senha" required />
+      
+      <h3>Escolha seus animes favoritos:</h3>
+      <label><input type="checkbox" name="anime" value="black clover" /> Black Clover</label><br />
+      <label><input type="checkbox" name="anime" value="naruto" /> Naruto</label><br />
+      <label><input type="checkbox" name="anime" value="one piece" /> One Piece</label><br />
+      <label><input type="checkbox" name="anime" value="zelda" /> Zelda</label><br />
+      <label><input type="checkbox" name="anime" value="blue lock" /> Shrek</label><br />
+      
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+
+  <script src="../js/register.js"></script>
+</body>
+</html>
