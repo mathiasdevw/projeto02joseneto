@@ -3,13 +3,19 @@ function login(event) {
 
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
+    const mensagem = document.getElementById('msg');
 
-    const usuario = JSON.parse(localStorage.getItem(email));
+    mensagem.textContent = '';
 
-    if (usuario && usuario.password === password) {
-      localStorage.setItem('currentUser', JSON.stringify(usuario));
-      window.location.href = 'home.html';
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+
+    const user = users.find((u) => u.email === email && u.password === password);
+
+    if (user) {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        alert('Login bem-sucedido!');
+        window.location.href = 'home.html';
     } else {
-      alert('Credenciais inválidas!');
+        mensagem.textContent = 'E-mail ou senha incorretos. Tente novamente.';
     }
 }

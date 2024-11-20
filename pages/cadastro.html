@@ -9,22 +9,23 @@
 <body>
   <div class="container">
     <h1>Cadastro</h1>
-    <form id="register-form" onsubmit="cadastro(event)">
+    <form id="register-form" onsubmit="registro(event)">
       <input type="text" id="register-name" placeholder="Nome" required />
       <input type="email" id="register-email" placeholder="E-mail" required />
-      <input type="password" id="register-password" placeholder="Senha" required />
+      <input type="password" id="register-senha" placeholder="Senha" required />
       
       <h3>Escolha seus animes favoritos:</h3>
       <label><input type="checkbox" name="anime" value="black clover" /> Black Clover</label><br />
       <label><input type="checkbox" name="anime" value="naruto" /> Naruto</label><br />
       <label><input type="checkbox" name="anime" value="one piece" /> One Piece</label><br />
       <label><input type="checkbox" name="anime" value="zelda" /> Zelda</label><br />
-      <label><input type="checkbox" name="anime" value="blue lock" /> Shrek</label><br />
+      <label><input type="checkbox" name="anime" value="blue lock" /> Blue Lock</label><br />
       
       <button type="submit">Cadastrar</button>
     </form>
+    <p>Voltar para o login <a href="login.html">página de login</a></p>
   </div>
 
-  <script src="../js/register.js"></script>
+  <script src="../js/registro.js"></script>
 </body>
 </html>

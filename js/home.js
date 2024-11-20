@@ -1,27 +1,39 @@
-function logout() {
-    localStorage.removeItem('currentUser');
-    window.location.href = 'login.html';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
     if (!currentUser) {
-      window.location.href = 'login.html';
+        alert('Você precisa estar logado para acessar esta página.');
+        window.location.href = 'login.html';
+        return;
     }
 
-    document.getElementById('user-name').textContent = currentUser.name;
+    document.getElementById('user-name').textContent = currentUser.usuario;
     document.getElementById('user-email').textContent = currentUser.email;
 
-    const animeImagesContainer = document.getElementById('anime-images');
-    
+    const animeContainer = document.getElementById('anime-images');
+    const animeImages = {
+        'black clover': '../images/black_clover.jpg',
+        'naruto': '../images/naruto.jpg',
+        'one piece': '../images/one_piece.jpg',
+        'zelda': '../images/zelda.jpg',
+        'blue lock': '../images/blue_lock.jpg'
+    };
 
-    currentUser.favoriteAnimes.forEach((anime) => {
-        const img = document.createElement('img');
-        img.src = `images/${anime}.jpg`; 
-        img.alt = anime;
-        img.style.width = '100px';  
-        img.style.marginRight = '10px';  
-        animeImagesContainer.appendChild(img);
-    });
+    if (Array.isArray(currentUser.favoriteAnimes)) {
+        currentUser.favoriteAnimes.forEach(anime => {
+            const img = document.createElement('img');
+            img.src = animeImages[anime] || '../images/default.jpg';
+            img.alt = anime;
+            img.className = 'anime-image';
+            animeContainer.appendChild(img);
+        });
+    } else {
+        animeContainer.textContent = 'Nenhum anime favorito selecionado.';
+    }
 });
+
+function logout() {
+    localStorage.removeItem('currentUser');
+    alert('Você saiu com sucesso!');
+    window.location.href = 'login.html';
+}
