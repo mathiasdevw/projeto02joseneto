@@ -30,6 +30,11 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         animeContainer.textContent = 'Nenhum anime favorito selecionado.';
     }
+
+
+
+    // Jose essa função aqui a cima de mostrar as imagens eu tentei de tudo pesquisei
+    //tentei ate com ia pra ver se ela em ajudava e mesmo assim não conseguimos fazer com que as imagens desse certo.
 });
 
 function logout() {
