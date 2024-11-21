@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const animeContainer = document.getElementById('anime-images');
     const animeImages = {
-        'black clover': '../images/black_clover.jpg',
-        'naruto': '../images/naruto.jpg',
-        'one piece': '../images/one_piece.jpg',
-        'zelda': '../images/zelda.jpg',
-        'blue lock': '../images/blue_lock.jpg'
+        'black clover': '../imagens/black_clover.jpg',
+        'naruto': '../imagens/naruto.jpg',
+        'one piece': '../imagens/one_piece.jpg',
+        'zelda': '../imagens/zelda.jpg',
+        'blue lock': '../imagens/blue_lock.jpg'
     };
 
     if (Array.isArray(currentUser.favoriteAnimes)) {
