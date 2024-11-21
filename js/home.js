@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // Jose essa função aqui a cima de mostrar as imagens eu tentei de tudo pesquisei
-    //tentei ate com ia pra ver se ela em ajudava e mesmo assim não conseguimos fazer com que as imagens desse certo.
+    //tentei ate com ia pra ver se ela ajudava e mesmo assim não conseguimos fazer com que as imagens desse certo.
 });
 
 function logout() {
