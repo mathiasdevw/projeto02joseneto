@@ -1,4 +1,8 @@
-function registro(event) {
+
+export const apiUrl = 'https://projetoweb-api.vercel.app/';
+
+
+async function registro(event) {
     event.preventDefault();
 
     const usuario = document.getElementById('register-name').value;
@@ -27,13 +31,26 @@ function registro(event) {
         return;
     }
 
-    const user = { usuario, email, password, favoriteAnimes: selecaoanimes };
+    const user = { name: usuario, email, password, anime_preferences: selecaoanimes };
 
-    users.push(user);
-    localStorage.setItem('users', JSON.stringify(users));
+    try {
+        const response = await fetch({
+            url: `https://projetoweb-api.vercel.app/auth/register`, headers: {
+                'Content-Type': 'application/json'
+            }, body: {
+                user
+            }, method: 'POST'
+        }).then(response => response);
 
-    localStorage.setItem('currentUser', JSON.stringify(user));
+        if (response.ok) {
+            users.push(user);
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('Cadastro realizado com sucesso!');
+            window.location.href = 'login.html';
 
-    alert('Cadastro realizado com sucesso!');
-    window.location.href = 'login.html';
+            localStorage.setItem('currentUser', JSON.stringify(user));
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }

@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (Array.isArray(currentUser.favoriteAnimes)) {
         currentUser.favoriteAnimes.forEach(anime => {
             const img = document.createElement('img');
-            img.src = animeImages[anime] || '../images/default.jpg';
+            img.src = animeImages[anime] || '../imagens/default.jpg';
             img.alt = anime;
             img.className = 'anime-image';
             animeContainer.appendChild(img);
