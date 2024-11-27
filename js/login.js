@@ -1,11 +1,9 @@
-export const apiUrl = 'https://projetoweb-api.vercel.app/';
 
-
-async function login(event) {
+function login(event) {
     event.preventDefault();
 
     const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
+    const password  = document.getElementById('login-password').value;
     const mensagem = document.getElementById('msg');
 
     mensagem.textContent = '';
@@ -13,13 +11,12 @@ async function login(event) {
     const user = { email, password };
 
 
+async function logi(){
     try {
-        const response = await fetch(`${apiUrl}/auth/login`, {
-            method: 'POST',
+        const response = await fetch('https://projetoweb-api.vercel.app/auth/login', {
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({user}) 
+            }, body: JSON.stringify(user), method: 'POST'
         });
     
         const data = await response.json(); 
@@ -35,5 +32,9 @@ async function login(event) {
         console.error(error);
         mensagem.textContent = 'Ocorreu um erro. Tente novamente.';
     }
+    
+}
+
+logi();
 }    
 
